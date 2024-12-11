@@ -1,0 +1,27 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+#navbari {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 30px;
+    margin-top: 0px;
+    margin-left: 0px;
+    background-color: #0A97B0;
+    width: 100%;
+    
+}
+#telefoni {
+    align-items: center;
+    height: 40px;
+    width: 50px;
+    margin-right: 6px;
+}
+#logo {
+    height: 60px;
+    width: 180px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
