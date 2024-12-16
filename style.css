@@ -23,5 +23,9 @@ body {
     height: 60px;
     width: 180px;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top:0px;
+}
+.btn btn-primar {
+    align-items: center
+    
 }
