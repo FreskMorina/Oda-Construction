@@ -1,41 +1,115 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products Page</title>
     <link rel="stylesheet" href="products.css">
 </head>
 <body>
-
+    <!-- navbari -->
     <nav class="navbar">
         <ul>
-            <div id="navkryesor" >    <!--nav kryesor -->
-            <div>    <!--nav logo -->
-            <img style="width: 200px; height: 90px;" src="logo_per_projekt-removebg-preview.png" alt="">
-           </div>    <!--nav logo -->
+            <div id="navkryesor">
+                <!-- Logo -->
+                <div>
+                    <img style="width: 200px; height: 90px;" src="logo_per_projekt-removebg-preview.png" alt="">
+                </div>
 
+                <!-- telefoni -->
+                <div id="nrtel">
+                    <img id="telefoni" src="image 1.png" alt="">
+                    <h4 style="font-size: 21px;">049 342 782 <br> 044 342 782</h4>
+                </div>
 
-           <div id="nrtel">
-            <img id="telefoni" src="image 1.png" alt="">
-            <h4 style="font-size: 21px;">049 342 782 <br> 044 342 782</h4>
-         </div>
-     
-
-                     <!--nav element -->
-           <div id="navelement"> 
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="products.html">Products</a></li>
-            <li><a href="contact.html">Contact</a></li>
-           </div>   <!--nav element -->
-        </div>   <!--nav kryesor -->
+                <!-- elementet e navbarit -->
+                <div id="navelement">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </div>
+            </div>
         </ul>
     </nav>
 
     <div style="background-color: black; height: 2px;"></div>
 
+    <!-- Productet -->
+    <div class="background-div">
+        <div class="container">
+            <section class="product-list" id="product-list">
+                <!--  5 productet -->
+                <article class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-details">
+                        <h3>Product Name 1</h3>
+                        <p>Description: Hidroizolim</p>
+                        <p>Price: $4</p>
+                    </div>
+                </article>
+                <article class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-details">
+                        <h3>Product Name 2</h3>
+                        <p>Description: Hidroizolim</p>
+                        <p>Price: $4</p>
+                    </div>
+                </article>
+                <article class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-details">
+                        <h3>Product Name 3</h3>
+                        <p>Description: Hidroizolim</p>
+                        <p>Price: $4</p>
+                    </div>
+                </article>
+                <article class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-details">
+                        <h3>Product Name 4</h3>
+                        <p>Description: Hidroizolim</p>
+                        <p>Price: $4</p>
+                    </div>
+                </article>
+                <article class="product-item">
+                    <div class="product-image"></div>
+                    <div class="product-details">
+                        <h3>Product Name 5</h3>
+                        <p>Description: Hidroizolim</p>
+                        <p>Price: $4</p>
+                    </div>
+                </article>
+            </section>
+            <button class="show-more" id="show-more-btn" onclick="showMoreProducts()">Show More Products</button>
+            <button class="back-to-top" id="back-to-top-btn" onclick="scrollToTop()">Back to Top</button>
+        </div>
+    </div>
 
-    
+    <script>
+        let productCount = 5;
+        let showMoreClicks = 0;
+        const maxShowMoreClicks = 3;
+
+        function showMoreProducts() {
+            const productList = document.getElementById('product-list');
+            for (let i = 0; i < 5; i++) {
+                productCount++;
+                let productItem = document.querySelector('.product-item').cloneNode(true);
+                productItem.querySelector('h3').textContent = `Product Name ${productCount}`;
+                productList.appendChild(productItem);
+            }
+            showMoreClicks++;
+            if (showMoreClicks >= maxShowMoreClicks) {
+                document.getElementById('show-more-btn').style.display = 'none';
+                document.getElementById('back-to-top-btn').style.display = 'block';
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
