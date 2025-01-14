@@ -46,8 +46,10 @@ body {
 #nrtel {
     display: flex;
     align-items: center;
-    margin-left: 200px;
-    margin-right: 340px;
+    margin-left: 100px;
+    margin-right: 200px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
 }
 #navkryesor {
     display: flex;
@@ -56,5 +58,7 @@ body {
     display: flex;
     margin-top: 30px;
     margin-left: 110px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
     
 }
