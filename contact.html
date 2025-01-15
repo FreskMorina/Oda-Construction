@@ -4,12 +4,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" href="contact.css">
-
-    <!-- EmailJS Script -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS with your User ID
-        emailjs.init("YOUR_USER_ID");
+        emailjs.init("tU686eVfLBKJvjNGU"); // Use your EmailJS User ID
     </script>
 </head>
 <body>
@@ -26,7 +24,6 @@
                 <div id="navelement">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">Rreth Ne</a></li>
-                    <li><a href="services.html">Sherbimet</a></li>
                     <li><a href="products.html">Produkte</a></li>
                     <li><a href="contact.html">Kontakti</a></li>
                 </div>
@@ -39,8 +36,9 @@
     <div style="padding: 100px;">
         <div id="contactformK">
             <div id="majtdjatht">
-                <div id="majt"></div>
-                <div id="djatht">
+                <div id="map" style="height: 500px; width: 400px;"></div>
+
+                 <div id="djatht">
                     <div class="container">
                         <h2>Contact Us</h2>
                         <form id="contact-form">
@@ -69,12 +67,9 @@
     </div>
 
     <script>
-        // Handle form submission
         document.getElementById("contact-form").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the default form submission
-
-            // Send form data using EmailJS
-            emailjs.sendForm("service_l4b6ofr", "YOUR_TEMPLATE_ID", this)
+            event.preventDefault();
+            emailjs.sendForm("service_l4b6ofr", "template_1o8piat", this)  // Replace YOUR_TEMPLATE_ID with your actual template ID
                 .then(function() {
                     alert("Message sent successfully!");
                 }, function(error) {
@@ -82,7 +77,6 @@
                 });
         });
     </script>
-    # Footer of Oda Construction
 
     <footer>
         <div class="footer-content">
@@ -109,6 +103,19 @@
             font-size: 14px;
         }
     </style>
-    
+    <div> 
+    </div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <script>
+        var map = L.map('map').setView([42.6725, 21.1524], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        L.marker([42.6725, 21.1524]).addTo(map)
+            .bindPopup('Prishtina, Rr.Tom Lantosh')
+            .openPopup();
+    </script>
 </body>
 </html>

@@ -1,7 +1,17 @@
-body {
-    margin: 0px;
-    padding: 0px;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+
 .navbar{
     background-color: #0A97B0;
     height: 107px;
@@ -47,10 +57,11 @@ body {
 #nrtel {
     display: flex;
     align-items: center;
-    margin-left: 100px;
-    margin-right: 200px;
+    margin-left: 200px;
+    margin-right: 324px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
+
 }
 #navkryesor {
     display: flex;
@@ -58,10 +69,10 @@ body {
 #navelement{
     display: flex;
     margin-top: 20px;
-    margin-left: 30px;
+    margin-left: 20px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
-    
+    float: left;
 }
 
 .fotokry {
@@ -72,7 +83,7 @@ body {
 }
 #fotomateral1 {
     height: 600px;
-    width: 340px;
+    width: 356px;
 }
 #fotomateral2 {
     height: 600px;
@@ -119,3 +130,6 @@ body {
        
     
 }
+
+
+

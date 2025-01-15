@@ -2,10 +2,19 @@ body {
     margin: 0px;
     padding: 0px;
     background-color: #0A97B0;
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
 .navbar{
     background-color: #0A97B0;
     height: 107px;
+    
     
 }
 
@@ -48,9 +57,9 @@ body {
     display: flex;
     align-items: center;
     margin-left: 100px;
-    margin-right: 200px;
+    margin-right: 326px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 300;
+    font-weight: 200;
 }
 #navkryesor {
     display: flex;

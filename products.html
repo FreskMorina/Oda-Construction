@@ -7,28 +7,23 @@
     <link rel="stylesheet" href="products.css">
 </head>
 <body>
-    <!-- navbari -->
+    <!-- Navbar -->
     <nav class="navbar">
         <ul>
             <div id="navkryesor">
-                <!-- Logo -->
                 <div>
                     <img style="width: 200px; height: 90px;" src="logo_per_projekt-removebg-preview.png" alt="">
                 </div>
-
-                <!-- telefoni -->
                 <div id="nrtel">
                     <img id="telefoni" src="image 1.png" alt="">
                     <h4 style="font-size: 21px;">049 342 782 <br> 044 342 782</h4>
                 </div>
-
-                <!-- elementet e navbarit -->
                 <div id="navelement">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">Rreth Ne</a></li>
-                    <li><a href="services.html">Sherbimet</a></li>
+                    
                     <li><a href="products.html">Produkte</a></li>
-                   <li><a href="contact.html">Kontakti</a></li>
+                    <li><a href="contact.html">Kontakti</a></li>
                 </div>
             </div>
         </ul>
@@ -36,109 +31,126 @@
 
     <div style="background-color: black; height: 2px;"></div>
 
-    <!-- Productet -->
+    <!-- Products Section -->
     <div class="background-div">
         <div class="container">
-            <section class="product-list" id="product-list">
-                <!--  5 productet -->
-                <article class="product-item">
-                    <div class="product-image"></div>
-                    <div class="product-details">
-                        <h3>Product Name 1</h3>
-                        <p>Description: Hidroizolim</p>
-                        <p>Price: $4</p>
-                    </div>
-                </article>
-                <article class="product-item">
-                    <div class="product-image"></div>
-                    <div class="product-details">
-                        <h3>Product Name 2</h3>
-                        <p>Description: Hidroizolim</p>
-                        <p>Price: $4</p>
-                    </div>
-                </article>
-                <article class="product-item">
-                    <div class="product-image"></div>
-                    <div class="product-details">
-                        <h3>Product Name 3</h3>
-                        <p>Description: Hidroizolim</p>
-                        <p>Price: $4</p>
-                    </div>
-                </article>
-                <article class="product-item">
-                    <div class="product-image"></div>
-                    <div class="product-details">
-                        <h3>Product Name 4</h3>
-                        <p>Description: Hidroizolim</p>
-                        <p>Price: $4</p>
-                    </div>
-                </article>
-                <article class="product-item">
-                    <div class="product-image"></div>
-                    <div class="product-details">
-                        <h3>Product Name 5</h3>
-                        <p>Description: Hidroizolim</p>
-                        <p>Price: $4</p>
-                    </div>
-                </article>
-            </section>
-            <button class="show-more" id="show-more-btn" onclick="showMoreProducts()">Show More Products</button>
-            <button class="back-to-top" id="back-to-top-btn" onclick="scrollToTop()">Back to Top</button>
+            <section class="product-list" id="product-list"></section>
+
+            <!-- Buttons for Showing More Products and Scrolling to Top -->
+            <div id="button-container">
+                <button class="show-more" id="show-more-btn" onclick="showMoreProducts()">Show More Products</button>
+                <button class="back-to-top" id="back-to-top-btn" onclick="scrollToTop()">Back to Top</button>
+            </div>
         </div>
     </div>
 
     <script>
-        let productCount = 5;
-        let showMoreClicks = 0;
-        const maxShowMoreClicks = 3;
+        // Product List Data
+        const products = [
+            { name: "MIDA PYE S4S", description: "Hidroizolim 4mm pa zall", price: "$3.7" },
+            { name: "MIDA PYE S5S", description: "Hidroizolim 5mm pa zall", price: "$4.5" },
+            { name: "MIDA PYE S4B", description: "Hidroizolim 4mm me zall", price: "$3.7" },
+            { name: "MIDA PYE S5B", description: "Hidroizolim 5mm me zall", price: "$4.5" },
+            { name: "AXTER CHAP ALU", description: "Hidroizolim 4mm me alumin", price: "$4.0" },
+            { name: "AXTER EXTRA GOLD", description: "Hidroizolim 5.2mm me zall", price: "$5.5" },
+            { name: "AXTER G200 S4+AL", description: "Hidroizolim 4mm me alumin", price: "$3.7" },
+            { name: "INSUTECH INSUPREME", description: "Hidroizolim 5mm me zall", price: "$5.7" },
+            { name: "INSUTECH INSUPREME", description: "Hidroizolim 4mm pa zall", price: "$4.3" },
+            { name: "BIMPLAST 30K", description: "Hidroizolim 3mm pa zall", price: "$13" },
+            { name: "BIMPLAST 40K", description: "Hidroizolim 4mm pa zall", price: "$3.7" },
+            { name: "BIMPLAST 40K1", description: "Hidroizolim 4mm pa zall", price: "$3.7" },
+            { name: "BIMPLAST 30K1", description: "Hidroizolim 3mm pa zall", price: "$13" },
+            { name: "BIMPLAST BITULIT B1", description: "4kg Bitumen", price: "$7.5" },
+            { name: "PRIMER BITULIT", description: "18L Primer", price: "$37" },
+            { name: "IBIT BITOMEN", description: "I ngrire", price: "$1.2/KG" },
+            { name: "VEDAG G200", description: "Hidroizolim 4mm pa zall", price: "$3.7" },
+            { name: "BAUDER AL+G200", description: "Hidroizolim 4mm me alumin", price: "$3.7" },
+            { name: "BAUDER G200 S4", description: "Hidroizolim 4mm pa zall", price: "$3.7" }
+        ];
 
-        function showMoreProducts() {
+        let displayedProducts = 0;
+        const productsPerLoad = 5;
+
+        // Display Initial Products
+        function loadProducts(count) {
             const productList = document.getElementById('product-list');
-            for (let i = 0; i < 5; i++) {
-                productCount++;
-                let productItem = document.querySelector('.product-item').cloneNode(true);
-                productItem.querySelector('h3').textContent = `Product Name ${productCount}`;
+            for (let i = displayedProducts; i < displayedProducts + count && i < products.length; i++) {
+                const product = products[i];
+                const productItem = document.createElement('article');
+                productItem.className = "product-item";
+                productItem.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>Description: ${product.description}</p>
+                    <p>Price: ${product.price}</p>
+                `;
                 productList.appendChild(productItem);
             }
-            showMoreClicks++;
-            if (showMoreClicks >= maxShowMoreClicks) {
+            displayedProducts += count;
+
+            // Toggle Buttons When All Products Are Loaded
+            if (displayedProducts >= products.length) {
                 document.getElementById('show-more-btn').style.display = 'none';
                 document.getElementById('back-to-top-btn').style.display = 'block';
             }
         }
 
+        // Show More Products
+        function showMoreProducts() {
+            loadProducts(productsPerLoad);
+        }
+
+        // Initial Load of 5 Products
+        loadProducts(productsPerLoad);
+
+        // Scroll to Top Functionality
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 
-# Footer of Oda Construction
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h2>Oda Construction</h2>
+            <p>&copy; 2023 Oda Construction. All rights reserved.</p>
+        </div>
+    </footer>
 
-<footer>
-    <div class="footer-content">
-        <h2>Oda Construction</h2>
-        <p>&copy; 2023 Oda Construction. All rights reserved.</p>
-        <p>Established: 2010</p>
-        <p>Last Updated: September 2023</p>
-    </div>
-</footer>
+    <!-- CSS Styling -->
+    <style>
+        #button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
 
-<style>
-    footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-    }
-    .footer-content h2 {
-        margin: 0;
-        font-size: 24px;
-    }
-    .footer-content p {
-        margin: 5px 0;
-        font-size: 14px;
-    }
-</style>
+        .show-more,
+        .back-to-top {
+            display: inline-block;
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: aqua;
+            color: black;   
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+        }
 
+        .back-to-top {
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .footer-content h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+    </style>
 </body>
 </html>

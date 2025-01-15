@@ -1,6 +1,7 @@
 body {
     margin: 0px;
     padding: 0px;
+    overflow: hidden;
 }
 .navbar{
     background-color: #0A97B0;
@@ -61,4 +62,73 @@ body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 300;
     
+}
+
+.centered {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    font-size: 39px;
+    font-family: "Gill Sans", sans-serif;
+  }
+.aboutus {
+    justify-items: center;
+    width: 500px;
+    background-color: aqua;
+    position: absolute;
+    top: 82%;
+    left: 15%;
+    text-align: center;
+    
+   
+}
+.aboutus2 {
+    justify-items: center;
+    width: 500px;
+    background-color: aqua;
+    position: absolute;
+    top: 110.499%;
+    left: 47.9%;
+    text-align: center;
+    padding: 7px;
+}
+.aboutus3 {
+    justify-items: center;
+    width: 500px;
+    background-color: aqua;
+    position: absolute;
+    top: 137.1%;
+    left: 14.08%;
+    text-align: center;
+    padding: 7px;
+}
+.aboutus4 {
+    justify-items: center;
+    width: 500px;
+    background-color: aqua;
+    position: absolute;
+    top: 163.6%;
+    left: 47.9%;
+    text-align: center;
+    padding: 7px;
+}
+.aboutus5 {
+    justify-items: center;
+    width: 500px;
+    background-color: aqua;
+    position: absolute;
+    top: 187.8%;
+    left: 14.1%;
+    text-align: center;
+    padding: 7px;
+}
+h2 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+}
+#posht {
+    width: 100%;
+    position: absolute;
+    top: 27.8%;
+     
 }
